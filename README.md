@@ -1,0 +1,1 @@
+A simple MeanApp that will be used to create the entire infrastructure
