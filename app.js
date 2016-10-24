@@ -1,54 +1,68 @@
-// node app initialize server 
-// type node app.js in bash to start the server
-// procfile- web: node app.js
-//         - heroku 
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var morgan = require('morgan')
+
+app.use(express.static(__dirname+'/client'));
+app.use(bodyParser.json());
+app.use(morgan('dev'))
 
 
+Trip =require('./models/trip');
 
+// Connect to Mongoose
+mongoose.connect('mongodb://pujan:Omg!tsgunn3r@ds023694.mlab.com:23694/bookstore');
+var db = mongoose.connection;
 
-// npm install to install node modules from package.json
+app.get('/api/trips', function(req, res){
+	Trip.getTrips(function(err, trips){
+		if(err){
+			throw err;
+		}
+		res.json(trips);
+	});
+});
 
+app.get('/api/trips/:_id', function(req, res){
+	Trip.getTripById(req.params._id, function(err, trip){
+		if(err){
+			throw err;
+		}
+		res.json(trip);
+	});
+});
 
+app.post('/api/trips', function(req, res){
+	var trip = req.body;
+	Trip.addTrip(trip, function(err, trip){
+		if(err){
+			throw err;
+		}
+		res.json(trip);
+	});
+});
 
-// ***********Getting dependencies***************
+app.put('/api/trips/:_id', function(req, res){
+	var id = req.params._id;
+	var trip = req.body;
+	Trip.updateTrip(id, trip, {}, function(err, trip){
+		if(err){
+			throw err;
+		}
+		res.json(trip);
+	});
+});
 
-var express         = require('express');
-var mongoose        = require('mongoose');
-var port            = process.env.PORT || 3000;
-var morgan          = require('morgan');
-var bodyParser      = require('body-parser');
-var methodOverride  = require('method-override');
-// starting express
-var app             = express();
+app.delete('/api/trips/:_id', function(req, res){
+	var id = req.params._id;
+	Trip.removeTrip(id, function(err, trip){
+		if(err){
+			throw err;
+		}
+		res.json(trip);
+	});
+});
 
-
-
-
-// ***********Express router config****************
-
-
-// connection to MongoDB
-// get the url from mlab
-mongoose.connect("mongodb://pujan:Omg!tsgunn3r@ds023694.mlab.com:23694/bookstore");
-
-
-
-
-// Logging and Parsing
-app.use(express.static(__dirname + '/public'));                
-app.use('/bower_components',  express.static(__dirname + '/bower_components')); 
-app.use(morgan('dev'));                                         
-app.use(bodyParser.json());                                    
-app.use(bodyParser.urlencoded({extended: true}));               
-app.use(bodyParser.text());                                     
-app.use(bodyParser.json({ type: 'application/vnd.api+json'}));  
-app.use(methodOverride());
-
-// **************Routes***************
-// todo
-
-
-
-// **************Listen****************
-app.listen(port);
-console.log('App listening on port ' + port);
+app.listen(3000);
+console.log('Running on port 3000...');

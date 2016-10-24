@@ -1,0 +1,20 @@
+<a href="#/trips">Go Back</a>
+<div ng-init="getTrip()">
+
+
+    <div class="row">
+    <h3 class="panel-title">{{trip.userid}}</h3>
+      <div class="col-md-8">
+        <ul class="list-group">
+          <li class="list-group-item">{{trip.places}}</li>
+          <li class="list-group-item">{{trip.city}}</li>
+          <li class="list-group-item">{{trip.rating}}</li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+
+<div class="pull-right">
+  <a href="#/trips/edit/{{trip._id}}">Edit</a> |  <a href="#" ng-click="removeTrip(trip._id)">Delete</a>
+  </div>

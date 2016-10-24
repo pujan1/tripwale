@@ -1,0 +1,25 @@
+<div  ng-init="getTrips()">
+    <div class="row">
+          <table class="table table-bordered" style="border-radius: 20px;">
+            <thead>
+              <tr>
+                <th>UserID</th>
+                <th>City</th>
+                <th>Places</th>
+                <th>Ratings</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="trip in trips">
+                <td>{{trip.userid}}</td>
+                <td>{{trip.city}}</td>
+                <td><span ng-repeat="places in trip.places">• {{places}}<br></span></td>
+                <td>{{trip.rating}}</td>
+                <td><a href="#/trips/details/{{trip._id}}">  details </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+</div>
