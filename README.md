@@ -1,1 +1,5 @@
-Simple Game information app that can give you the info on latest game .. built using mean stack
+a simple map function working with mean stack,
+trips = one document 
+which is stored in mongodb<br>
+
+/trips/result for the directional condition
