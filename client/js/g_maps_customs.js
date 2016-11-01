@@ -1,14 +1,16 @@
       function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
+        document.getElementById("map").style.display = 'block';
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 6,
           center: {lat: 41.85, lng: -87.65}
         });
         directionsDisplay.setMap(map);
 
-        document.getElementById('submit').addEventListener('click', function() {
+        document.getElementById('submitInput').addEventListener('click', function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
+          
         });
       }
 
@@ -43,10 +45,13 @@
                   '</b><br>';
               summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
               summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
             }
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
       }
+
+
+      // autocomplete 

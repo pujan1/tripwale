@@ -23,6 +23,13 @@ myApp.controller('TripsController', ['$scope', '$http', '$location', '$routePara
 		});
 	}
 
+	$scope.addInput = function(){
+		console.log($scope.trip);
+		$http.post('/api/trips/', $scope.trip).success(function(response){
+			window.location.href='#/trips/result';
+		});
+	}
+
 	$scope.updateTrip = function(){
 		var id = $routeParams.id;
 		$http.put('/api/trips/'+id, $scope.trip).success(function(response){

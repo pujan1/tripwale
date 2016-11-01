@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',['ngRoute']);
 myApp.config(function($routeProvider){
 	$routeProvider.when('/', {
 		controller:'TripsController',
-		templateUrl: 'views/trips.html'
+		templateUrl: 'views/main.html'
 	})
 	.when('/trips', {
 		controller:'TripsController',
@@ -20,6 +20,10 @@ myApp.config(function($routeProvider){
 	.when('/trips/edit/:id',{
 		controller:'TripsController',
 		templateUrl: 'views/edit_trip.html'
+	})
+	.when('/trips/input',{
+		controller:'TripsController',
+		templateUrl: 'views/trip_input.html'
 	})
 	.when('/trips/result',{
 		controller:'TripsController',
