@@ -1,3 +1,7 @@
+.navbar {
+    margin-bottom: 1px;
+}
+
 #right-panel {
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
@@ -46,7 +50,7 @@
     display: block; 
     width: 100%; 
     text-align: center; 
-    background: url('https://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg?format=2500w') no-repeat center center scroll;
+    background: url('../imgs/san-franc.jpg') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -56,6 +60,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+
+  
+
 
 }
 
@@ -71,7 +79,26 @@
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
    padding: 10px; 
+   z-index:0;
+   -webkit-marquee-speed: fast;
 
+}
+
+#head_mean{
+
+   position: absolute; 
+   margin-top: 290px;
+   top: 200px; 
+   left: 0; 
+   width: 100%; 
+   color: rgba(255, 255, 255, 1); 
+   font: bold 40px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+   z-index:0;
+   -webkit-marquee-speed: fast;
 
 }
 
@@ -92,7 +119,7 @@
   transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
   display: block;
   margin: 20px auto;
-  max-width: 370px;
+  max-width: 230px;
   text-decoration: none;
   border-radius: 4px;
   padding: 20px 30px;

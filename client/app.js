@@ -25,6 +25,11 @@ myApp.config(function($routeProvider){
 		controller:'TripsController',
 		templateUrl: 'views/trip_input.html'
 	})
+	.when('/about',{
+		controller:'TripsController',
+		templateUrl: 'views/about.html'
+	})
+
 	.when('/trips/result',{
 		controller:'TripsController',
 		templateUrl: 'views/trip_result.html'
