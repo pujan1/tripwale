@@ -7,6 +7,7 @@ var morgan = require('morgan')
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.json());
 app.use(morgan('dev'))
+app.set('port', (process.env.PORT || 3000));
 
 
 Trip =require('./models/trip');
@@ -64,5 +65,6 @@ app.delete('/api/trips/:_id', function(req, res){
 	});
 });
 
-app.listen(3000);
-console.log('Running on port 3000...');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
