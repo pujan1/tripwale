@@ -2,6 +2,7 @@ var myApp = angular.module('myApp');
 var currentUser;
 
 
+
 myApp.controller('TripsController', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
 	console.log('TripsController loaded...');
 
@@ -14,8 +15,11 @@ myApp.controller('TripsController', ['$scope', '$http', '$location', '$routePara
 	}
 
 	$scope.getTrip = function(){
+
 		var id = $routeParams.id;
 		$http.get('/api/trips/'+id).success(function(response){
+			newnumber = response;
+			console.log(newnumber);
 			$scope.trip = response;
 		});
 	}

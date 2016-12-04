@@ -13,7 +13,8 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#/trips/add">Plan a Trip</a></li>
             <li><a href="#/explore">Explore</a></li>
-            <li><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>
+            <li><a href="#/trips">View all trips</a></li>
+            <li><a href="#/users/profile/{{user._id}}">Welcome {{user.user.name}}</a></li>
             
             
           </ul>
@@ -27,29 +28,41 @@
   <div class="panel-body">
     <div class="row">
 
-      <div class="col-md-8">
+      <div class="col-md-12">
       
         <ul class="list-group">
-          <li class="list-group-item">username: {{user.user.username}}</li>
-          <li class="list-group-item">email: {{user.user.email}}</li>
-          <li class="list-group-item">password: {{user.user.password}}</li>
-          <li class="list-group-item">Name: {{user.user.name}}</li>
+          <li class="list-group-item"><h3><b>Name:</b> {{user.user.name}}</h3></li>
+          <li class="list-group-item"><h3><b>Username:</b> {{user.user.username}}</h3></li>
+          <li class="list-group-item"><h3><b>email:</b> {{user.user.email}}</h3></li>
+         
+          
         </ul>
        
 
         <div ng-repeat="trip in user.trips">
-        <div class="col-md-6">
-         
-            <h4>{{trip.city}}</h4>
-            <p>{{trip.startpoint}}</p>
-            <p>{{trip.sights}}</p>
-            <p>{{trip.endpoints}}</p>
-            <p>{{trip.time}}</p>
-            <p>{{trip.rating}}</p>
-            <a class="btn btn-primary" href="#/trips/details/{{trip._id}}">View Details</a>
-        
+           <div class=" col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                                   <a href="#/trips/details/{{trip._id}}"> <img src="{{trip.sightsdetails[0].photo}}"></a>
+                                    <hr style="border: 1px solid #666" />​
+                                    <h4>{{trip.city}}</h4>
+                                    <p>Travelled by: {{trip._user.name}}</p>
+                                </div>
+                                <div class="panel-body">
+                                       Places travelled:
+                                      <ul>
+                                        <li ng-repeat="sights in trip.sightsdetails">{{sights.name}}</li>
+                                      </ul>
 
-        </div>
+                                       <hr>
+                                    <p id="proj_desc">Date Travelled: {{trip.create_date | date : longDate : timezone}}</p>
+                                    
+                                    <a class="btn btn-primary" href="#/trips/details/{{trip._id}}">View Details</a>
+                                </div>
+
+
+                        </div>
+                        </div>
       </div>
       </div>
     </div>

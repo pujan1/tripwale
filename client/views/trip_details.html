@@ -1,4 +1,7 @@
 
+  <script src="/scripts/trip_details.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI19wnbHIh6JDz7IanAKOzySUQ_uqrNqo&libraries=places&callback=initialize"></script> 
+
   <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -14,6 +17,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#/trips/add">Plan a Trip</a></li>
             <li><a href="#/explore">Explore</a></li>
+            <li><a href="#/trips">View all trips</a></li>
             <li><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>
             
             
@@ -21,22 +25,32 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container">
+<div class="container">
 <div class="panel panel-default" ng-init="getTrip()">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{user.name}}</h3>
-  </div>
+
   <div class="panel-body">
     <div class="row">
 
       <div class="col-md-8">
-        </p>{{trip.city}}</p>
+        <h2>{{trip.city}}</h2>
+        Traveller: {{trip._user.name}}<br><br>
         <ul class="list-group">
-          <li class="list-group-item">Traveller: {{trip._user.name}} - {{trip._user.username}}</li>
-          <li class="list-group-item">places: {{trip.sights}}</li>
-          <li class="list-group-item">Start: {{trip.startpoint}}</li>
-          <li class="list-group-item">End: {{trip.endpoint}}</li>
-          <li class="list-group-item">Rating: {{trip.rating}}</li>
+          
+          
+          <li class="list-group-item"><b>Start point:</b> {{trip.startpoint}}</li>
+          <li class="list-group-item"><b>End point:</b> {{trip.endpoint}}</li>
+          <li class="list-group-item"><b>Time taken: </b>{{trip.time/60}} mins</li>
+
+          <li class="list-group-item">
+            Places visited:
+          <ul>
+              <li ng-repeat="sight in trip.sightsdetails">
+                  {{sight.name}}
+              </li>
+
+          </ul></li>
+
+
         </ul>
  
       </div>
@@ -44,4 +58,27 @@
   </div>
 </div>
 
+</div>
+<<div class="jumbotron"><div class="container"><p> Places visited</p>
+<div ng-repeat="sight in trip.sightsdetails | orderBy: 'created_date':true">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <img src="{{sight.photo}}">
+              
+              ​
+              <h4>
+                {{sight.name}}
+              </h4>
+            </div>
+
+          </div>
+        </div>
+</div></div></div>
+
+
+<div class="container">
+<div class="jumbotron" id="mapcontainer">
+   <div id="map"></div>
+</div> 
 </div>

@@ -2,22 +2,20 @@ var myApp = angular.module('myApp',['ngRoute']);
 
 myApp.config(function($routeProvider){
 	$routeProvider.when('/', {
-		controller:'UsersController',
-		templateUrl: 'views/users.html'
+		controller:'TripsController',
+		templateUrl: 'views/landing.html'
+	})
+	.when('/landing', {
+		controller:'TripsController',
+		templateUrl: 'views/landing.html'
 	})
 	.when('/trips', {
 		controller:'TripsController',
-		templateUrl: 'views/trips.html',
-		resolve: {
-			loggedin : checkLoggedin
-		}
+		templateUrl: 'views/trips.html'
 	})
 	.when('/trips/details/:id',{
 		controller:'TripsController',
-		templateUrl: 'views/trip_details.html',
-		resolve: {
-			loggedin : checkLoggedin
-		}
+		templateUrl: 'views/trip_details.html'
 	})
 	.when('/trips/add',{
 		controller:'TripsController',
@@ -26,13 +24,7 @@ myApp.config(function($routeProvider){
 			loggedin : checkLoggedin
 		}
 	})
-	.when('/landing',{
-		controller:'TripsController',
-		templateUrl: 'views/landing.html',
-		resolve: {
-			loggedin : checkLoggedin
-		}
-	})
+	
 	.when('/register',{
 		controller:'UsersController',
 		templateUrl: 'views/register.html'
@@ -45,7 +37,7 @@ myApp.config(function($routeProvider){
 		}
 	})
 
-	.when('/explorer',{
+	.when('/explore',{
 		controller:'UsersController',
 		templateUrl: 'views/explorer.html',
 		resolve: {

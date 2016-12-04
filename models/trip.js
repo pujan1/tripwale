@@ -49,7 +49,7 @@ var Trip = module.exports = mongoose.model('Trip', tripSchema);
 
 // Get Trips
 module.exports.getTrips = function(callback, limit){
-	Trip.find(callback).limit(limit);
+	Trip.find(callback).limit(limit).populate('_user');
 }
 
 // Get Trip

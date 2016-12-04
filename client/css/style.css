@@ -35,7 +35,7 @@ img{
     border-radius: 5px; /* 5px rounded corners */
     background-color: #CCC;
     margin-bottom: 10px;
-    
+
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
@@ -52,6 +52,13 @@ html,body{
 }
 
       #map {
+        height: 100%;
+        width: 100%;
+        border:1px solid #021a40;
+        
+      }
+
+      #map2 {
         height: 100%;
         width: 100%;
         border:1px solid #021a40;
