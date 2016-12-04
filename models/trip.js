@@ -1,29 +1,51 @@
 var mongoose = require('mongoose');
 
+ObjectId = mongoose.Schema.ObjectId;
 // Trip Schema
 var tripSchema = mongoose.Schema({
-	userid:{
-		type: String
-		
+	_user:{
+	 type: String,
+	 ref: 'User' 
 	},
 	city:{
-		type: String
-		
+		type: String,
 	},
-	places:{
+	startpoint:{
+		type: String,
+		required: true
+	},
+	sights:{
 		type: [String]
 	},
-	rating:{
+	address:{
+		type: [String]
+	},
+	sightsdetails:{
+		type: [{}]
+	},
+	endpoint:{
 		type: String
-		
+	},
+	rating:{
+		type: Number
 	},
 	create_date:{
 		type: Date,
 		default: Date.now
+	},
+	start_date:{
+		type: Date
+	},
+	time:{
+		type: Number
 	}
 });
 
+
+
 var Trip = module.exports = mongoose.model('Trip', tripSchema);
+
+
 
 // Get Trips
 module.exports.getTrips = function(callback, limit){
@@ -32,7 +54,8 @@ module.exports.getTrips = function(callback, limit){
 
 // Get Trip
 module.exports.getTripById = function(id, callback){
-	Trip.findById(id, callback);
+	Trip.findById(id, callback).populate('_user');
+
 }
 
 // Add Trip
@@ -40,14 +63,26 @@ module.exports.addTrip = function(trip, callback){
 	Trip.create(trip, callback);
 }
 
+
+module.exports.getTripsbyUser = function(id, callback){
+	console.log("id - " +id);
+	Trip.find({ '_user': id}, callback);
+}
+
+
+
 // Update Trip
 module.exports.updateTrip = function(id, trip, options, callback){
 	var query = {_id: id};
 	var update = {
-		userid: trip.userid,
-		places: trip.places,
-		city: trip.city,
-		rating: trip.rating,
+		title: trip.title,
+		genre: trip.genre,
+		description: trip.description,
+		author: trip.author,
+		publisher: trip.publisher,
+		pages: trip.pages,
+		image_url: trip.image_url,
+		buy_url: trip.buy_url
 	}
 	Trip.findOneAndUpdate(query, update, options, callback);
 }
