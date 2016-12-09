@@ -1,10 +1,17 @@
+<!DOCTYPE html>
 <html ng-app="myApp">
 <head>
 	<title>TripWale</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://mdbootstrap.com/live/_MDB4/docs/css/mdb.min.css">
+  
+ 
   <link rel="stylesheet" type="text/css" href="/bower_components/sweetalert/dist/sweetalert.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
 
@@ -16,55 +23,30 @@
   <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="http://mdbootstrap.com/wp-content/themes/mdbootstrap4/Tutorials/bootstrap/I-1/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" ></script>
+  <script src="http://mdbootstrap.com/live/_MDB4/docs/js/mdb.min.js"></script>
+
+
 
   <script src="/app.js"></script>
 
   <script src="/controllers/trips.js"></script>
 
-  <link rel="shortcut icon" href="">
+
 </head>
 <body>
-
-    	<div class="row">
-    		<div class="col-md-12">
-    			<div ng-view></div>
-    		</div>
-    	</div>
-   
-
-    </div><!-- /.container -->
-    <footer id="footer">
-    <div  class="text-center">
- 
-
-
-    <div class="row">
-        <div class="col-lg-12">
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="/">About Us</a></li>
-                <li><a href="#/">Presentation</a></li>
-                <li><a href="#/">Github Link</a></li>
-            </ul>
+<div class="wrap">
+  
+  <div class="row" id="main" >
+        <div class="col-md-12">
+          <div ng-view></div>
         </div>
-    </div>
- 
-    <div class="row">
-        <div class="col-lg-12">
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="/">© 2016 Tripwale.</a></li>
-                <li><a href="#/">Terms of Service</a></li>
-                <li><div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
-            </ul>
-        </div>
-    </div>
+      </div>
 </div>
-
-</footer>
-
+ <div class="container footer navbar-static-bottom" id="footer" >
+            <p class="muted credit">Tripewale @2016</p>
+    </div>
+    	
 </body>
 </html>

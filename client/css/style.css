@@ -1,6 +1,194 @@
-img{
-	width:100%;
+
+
+
+
+
+
+body{
+  background: url(https://i.imgur.com/i2xiBc7.jpg) no-repeat top right;
+  background-attachment: fixed;
+
+} 
+
+.login-tittle{
+  color:#aaa;
 }
+
+.new-login{
+  padding-bottom: 400px;
+}
+
+
+.form-login{
+  align-items: center;
+  padding-bottom: 400px;
+
+
+}
+
+.sign-button{
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-container{
+  
+max-width: 400px;
+}
+
+
+
+.form-container label.form-label
+{
+
+    display: block;
+    margin: 20px auto;
+}
+
+
+#contact{
+  padding-bottom: 30px;
+}
+
+
+
+.background_jumbo{
+  
+  background: url(http://chicago.agbuyp.org/wp-content/uploads/sites/24/2014/09/chicago_skyline_background_picture-1-e1413220959114.jpg) no-repeat;
+   background-size: 100%;
+  background-attachment: fixed;
+}
+
+.backfround_jumbo.display-3{
+  color: #222;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+
+
+
+.container .sign-up
+{
+    color:#aaa;
+    text-align: center;
+}
+
+.container .sign-up a
+{
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s all;
+}
+
+
+
+
+#login-page{
+  padding-top: 200px;
+  max-width: 500px;
+}
+#main
+{
+overflow:auto;
+padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+html{
+    position: relative;
+    height: 100%;
+}
+
+.wrap{
+   min-height: 100%;
+}
+
+.btn_landing{
+  width: 100%;
+   padding-top: 20px; 
+   padding-bottom: 20px;
+   text-decoration: none;
+
+}
+
+.padded_h3{
+  padding: 10px 10px 10px 10px;
+}
+
+
+#footer {
+  height: 60px;
+ 
+
+}
+#footer {
+  background-color: #eee;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+#footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+}
+
+
+.logincard{
+  width: 500px
+  margin-bottom:700px;
+  
+}
+
+.card{
+  max-width: 400px;
+}
+
+
+img{
+width:100%;
+
+}
+
+.navbar{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-item{
+
+  text-decoration: none;
+}
+.container{
+  padding-top:10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-style: thin;
+  border-width: 3px;
+  border-color: #aaa;
+    
+}
+
+
+.autocomplete4{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pac-container{
+    background-color: rgba(255, 255, 255, 0.6); !important;
+}
+
+
+
+.container:hover{
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#google_translate_element{
+  width: auto;
+}
+
+
 
 .locationField, #controls {
         position: relative;
@@ -11,16 +199,18 @@ img{
         top: 0px;
         left: 0px;
         width: 99%;
+        
       }
 
       #locationField {
         height: 20px;
         margin-bottom: 2px;
+        background-color: rgba(255, 255, 255, 0.8);
       }
 
       #directions-panel {
         margin-top: 10px;
-        background-color: #FFEE77;
+        background-color: #E3F2FD;
         padding: 10px;
       }
 
@@ -29,29 +219,13 @@ img{
 }
 
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    background-color: #CCC;
-    margin-bottom: 10px;
-
-}
 
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
-    border-radius: 5px;
+ 
 }
 
-body{
-  background: url(https://i.imgur.com/i2xiBc7.jpg) no-repeat top right;
-  background-attachment: fixed;}
-html,body{
-    position: relative;
-    height: 100%;
-}
-
-      #map {
+      #map-container {
         height: 100%;
         width: 100%;
         border:1px solid #021a40;
@@ -65,40 +239,7 @@ html,body{
         
       }
 
-.login-container{
-    position: relative;
-    width: 300px;
-    margin: 80px auto;
-    padding: 40px 40px 40px 40px;
-    text-align: center;
-    background:rgba(200, 255, 255, 0.5);
 
-    border: 1px solid #ccc;
-}
-
-
-.login-container::before,.login-container::after{
-    content: "";
-    position: absolute;
-    width: 100%;height: 100%;
-    top: 3.5px;left: 0;
-    background:rgba(200, 255, 255, 0.5);
-    z-index: -1;
-    -webkit-transform: rotateZ(4deg);
-    -moz-transform: rotateZ(4deg);
-    -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
-
-}
-
-.login-container::after{
-    top: 5px;
-    z-index: -2;
-    -webkit-transform: rotateZ(-2deg);
-     -moz-transform: rotateZ(-2deg);
-      -ms-transform: rotateZ(-2deg);
-
-}
 
 
 
@@ -142,6 +283,175 @@ html,body{
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.navbar-xs { min-height:22px; border-radius:0} 
-.navbar-xs .navbar-brand{ padding: 2px 8px;font-size: 14px;line-height: 10px; } 
-.navbar-xs .navbar-nav > li > a { border-right:1px solid #ddd; padding-top: 2px; padding-bottom: 2px; line-height: 16px }
+
+
+
+
+
+
+
+// Large devices (desktops, less than 1200px)
+ @media (min-width: 992px) and (max-width: 1199px) {
+  .largeclear{display: block;}
+  .smallclear{display: none}
+
+}
+
+@media (max-width: 991px) {
+  .largeclear{display: none;}
+  .smallclear{display: block;}
+  
+}
+
+
+
+.content {
+  @extend %slide-up;
+  
+  width: 20rem;
+  margin: -4rem auto 0 auto;
+  padding: 1rem;
+  
+  background: #fff;
+  
+  border-radius: rem(2);
+  box-shadow: 0 rem(2) rem(5) 0 rgba(0, 0, 0, 0.25);
+}
+
+.list {
+  margin: .5rem;  
+}
+
+.list__item {
+  margin: 0 0 .5rem 0;
+  padding: 0;
+}
+
+.label--checkbox {
+  position: relative;
+
+  margin: .5rem;
+  
+  font-family: Arial, sans-serif;
+  line-height: 135%;
+  
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative;
+  top: rem(-6);
+  
+  margin: 0 1rem 0 0 ;
+  
+  cursor: pointer;
+  
+  &:before {
+    @include transition(all .3s ease-in-out);
+    
+    content: "";
+    
+    position: absolute;
+    left: 0;
+    z-index: 1;
+  
+    width: 1rem;
+    height: 1rem;
+    
+    border: 2px solid #f2f2f2; 
+  }
+  
+  &:checked {
+    &:before {
+       @include transform(rotate(-45deg));
+  
+      height: .5rem;
+  
+      border-color: $green;
+      border-top-style: none;
+      border-right-style: none;
+    } 
+  }
+  
+  &:after {
+    content: "";
+    
+    position: absolute;
+    top: rem(-2);
+    left: 0;
+    
+    width: 1.1rem;
+    height: 1.1rem;
+    
+    background: #fff;
+    
+    cursor: pointer;
+  }
+}
+
+.button--round { 
+  @include transition(.3s background ease-in-out);
+  
+  width: 2rem;
+  height: 2rem;
+  
+  background: $blue;
+  
+  border-radius: 50%;
+  box-shadow: 0 rem(2) rem(5) 0 rgba(0, 0, 0, 0.25);
+  
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  
+  i {
+    font-size: 1rem;
+    line-height: 220%;
+    vertical-align: middle;
+  }
+  
+  &:hover {
+    background: $blueDark;
+  }
+}
+
+.button--sticky {
+  position: fixed;
+  right: 2rem;
+  top: 16rem;
+}
+
+%slide-up {
+  -webkit-animation-duration: $slideDuration;
+  animation-duration: $slideDuration;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: slideUp;
+  animation-name: slideUp;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(rem($slideDistance));
+    transform: translateY(rem($slideDistance));
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(rem($slideDistance));
+    transform: translateY(rem($slideDistance));
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}

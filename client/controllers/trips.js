@@ -39,7 +39,7 @@ myApp.controller('TripsController', ['$scope', '$http', '$location', '$routePara
 			sweetAlert({
 				  title: "Great !!",
 				  text: "You saved this trip to your account",
-				  type: "warning",
+				  type: "success",
 				  showCancelButton: true,
 				  confirmButtonColor: "#DD6B55",
 				  confirmButtonText: "Stay here",

@@ -1,70 +1,81 @@
+
+
   <script src="/scripts/trip_result.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI19wnbHIh6JDz7IanAKOzySUQ_uqrNqo&libraries=places&callback=initialize"></script> 
-  <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+   <nav class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-toggleable-xs" id="navbar-header">
           <a class="navbar-brand" href="#/">TripWale</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            
-            <li><a href="#/explore">Explore</a></li>
-            <li><a href="#/trips">View all trips</a></li>
-            <li><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>
-            
-            
+          <ul class="nav navbar-nav float-sm-right">
+
+            <li class="nav-item"><a href="#/explore">Explore</a></li>
+            <li class="nav-item"><a href="#/trips">View all trips</a></li>
+            <li class="nav-item"><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>    
+
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+        </div>
+      </nav> <br> <br>
 
 <div class="container">
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Add Trip</h3>
-  </div>
+   <div class="divider-new">
+            <h2 class="h2-responsive wow bounceIn">Plan a trip</h2>
+        </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-      <form >
-        <div class="form-group">
-          <label>City</label>
+      <form>
+
+
+         <div class="col-lg-12">
+
+          <br>
+           <h3 for="autocomplete">city:</h3>
+           <div class="md-form">
+          
           <div class="locationField">
             <input id="autocomplete" type="text" class="form-control" ng-model="trip.city" placeholder="enter city name to traval">
           </div>
-        </div>
+        </div></div><br><br>
 
-        <div class="form-group">
-          <label>Start Point</label>
-        </div>
 
-        <div class="form-group">
-          <label>Start Point</label>
+        <div class="col-lg-12">
+          <br><br><br>
+           <h3 for="autocomplete">Start Point:</h3>
+        <div class="md-form">
           <div class="locationField">
             <input type="text" id="autocomplete2" class="form-control" ng-model="trip.startpoint" placeholder="Enter place">
           </div>
-        </div>
+          
+        </div></div><br><br>
 
-        <div class="form-group">
-          <p><b>Select multiple places: </b></p>
-          <select multiple ng-model="trip.sights" class="form-control" id="populateplaces">
+         <div class="col-lg-12">
+         <br><br><br>
+         <div class="md-form">
+         <h3 for="autocomplete">Select multiple areas:</h3>
+          <select  multiple ng-model="trip.sights" class="form-control"  id="populateplaces">
           </select>
-        </div>
-        <div class="form-group">
-          <label>Query</label>
+
+
+
+
+        </div></div><br><br>
+
+           <div class="col-lg-12">
+           <br> <br> 
+            <h3 for="autocomplete">Endpoint:</h3>
+        <div class="md-form">
           <div class="locationField">
             <input id="autocomplete3" type="text" class="form-control" ng-model="trip.endpoint" placeholder="Endpoints">
           </div>
-         
-        </div>
-        <div class="form-group">
-          <label>Trip rating</label>
+           
+        </div></div>
+
+
+         <div class="col-lg-12">
+         <div class="md-form">
+
+
           <select ng-model="trip.rating" class="form-control">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -72,7 +83,11 @@
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-        </div>
+            <label>Trip rating</label>
+
+
+
+        </div></div>
 
        
         
@@ -86,13 +101,14 @@
 
 
 <div class="container">
-<div class="jumbotron" id="mapcontainer">
-   <div id="map"></div>
-</div> 
-</div>
 
-<div class="jumbotron">
+   <div id="map-container" class="z-depth-1 wow fadeInUp" style="height: 500px"></div>
+
+</div>
+<br> <br>
+
 <div class="container">
+<div class="jumbotron">
 
 
 

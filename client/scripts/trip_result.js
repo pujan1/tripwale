@@ -22,14 +22,14 @@ function processwaypoints(){
 
 
                 $( "#populateplacedetails" ).append(
-                    '<div class="col-lg-3 col-md-4 col-sm-6"><div class="card"><img src="' + phototemp + 
+                    '<div class="col-lg-4 col-md-4 col-sm-6"><div class="card"><img src="' + phototemp + 
                     '" style="width:100%"><div class="container"> <h4> <b> ' + 
                     outputstr.response.groups[0].items[i].venue.name +
                     '</b></h4><hr><p>Category:' +
                     outputstr.response.groups[0].items[i].venue.categories[0].name +
                     '</p></div></div></div>'
 
-                );
+                ); 
 
 
               sightsdetailsarray.push({
@@ -89,17 +89,28 @@ function processurl(){
 			$.getJSON(url, function(jsonresult){
 				outputstr = jsonresult;
 		        for(i=0; i<jsonresult.response.groups[0].items.length; i++){
-		        	$("#populateplaces").append(
-		        		'<option value="' + jsonresult.response.groups[0].items[i].venue.name +  ", " + jsonresult.response.groups[0].items[i].venue.location.city +
+
+
+                        
+
+		        $("#populateplaces").append(
+		        		
+
+
+                       '<option value="' + jsonresult.response.groups[0].items[i].venue.name +  ", " + jsonresult.response.groups[0].items[i].venue.location.city +
 		        		'">' +
-		        		jsonresult.response.groups[0].items[i].venue.name +  ", " + jsonresult.response.groups[0].items[i].venue.location.city +
-		        		'</option>'
+		        		jsonresult.response.groups[0].items[i].venue.name +  ", " + jsonresult.response.groups[0].items[i].venue.location.city + ' Category:' + 
+                        jsonresult.response.groups[0].items[i].venue.categories[0].name +
+		        		'</option>' 
+
+                       
 
 
-		        	);
+		        	); 
 
 		        	
 		        }
+
 			}).error(function() { sweetAlert("Cannot find the place"); });        
 		};
 
@@ -111,7 +122,7 @@ function processurl(){
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map-container'), {
         zoom: 15,
         center: {
             lat: 37.332716,
