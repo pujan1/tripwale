@@ -1,71 +1,128 @@
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+
+
+    
+     <nav class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-toggleable-xs" id="navbar-header">
           <a class="navbar-brand" href="#/">TripWale</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/trips/add"> GO Travel</a></li>
-            <li><a href="#/explore">Explore</a></li>  
+          <ul class="nav navbar-nav float-sm-right">
+          <li class="nav-item"><a href="#/heatmap">Show heatmaps</a></li>
+            <li class="nav-item"><a href="#/explore">Explore</a></li>
+            <li class="nav-item"><a href="#/trips">View all trips</a></li>
+            <li class="nav-item"><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>    
 
-            <li><a href="#/users/profile/{{user._id}}">Welcome {{user.name}}</a></li>
-            
-            
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <div class="container">
-<div class="panel panel-default" ng-init="getTrips()">
-  <div class="panel-heading">
-    <h3 class="panel-title">All trips</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-    	<div ng-repeat="trip in trips">
-    	
-
-          <div class=" col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                          <div class="panel panel-default">
-                            <div class="panel-heading">
-                                   <a href="#/trips/details/{{trip._id}}"> <img src="{{trip.sightsdetails[0].photo}}"></a>
-                                    <hr style="border: 1px solid #666" />​
-                                    <h4>{{trip.city}}</h4>
-                                    <p>Travelled by: {{trip._user.name}}</p>
-                                </div>
-                                <div class="panel-body">
-                                       Places travelled:
-                                      <ul>
-                                        <li ng-repeat="sights in trip.sightsdetails">{{sights.name}}</li>
-                                      </ul>
-
-                                       <hr>
-                                    <p id="proj_desc">Date Travelled: {{trip.create_date | date : longDate : timezone}}</p>
-                                    
-                                    <a class="btn btn-primary" href="#/trips/details/{{trip._id}}">View Details</a>
-                                </div>
-
-
-                        </div>
-                        </div>
+        </div>
+      </nav>
 
 
 
+<div class="container">
 
-    		
-    			
-    			
-    			
 
-    	
-    	</div>
-    </div>
-  </div>
+ 
+
+  
+   <div class="row">
+      <div class="col-md-12">
+      <form ng-submit="getHeatmap()">
+      
+        <div class="form-group">
+          <label>City</label>
+          <div class="locationField">
+            <input id="autocomplete7" ng-model="trip.city" type="text" class="form-control"  placeholder="enter city name for heatmap">
+          </div>
+        </div>
+
+
+
+       
+        
+        <button type="submit" id="showresult" class="btn btn-default">Show heatmap</button>
+      </form>
+   </div>
+    </div> 
+  
+    
 </div>
+
+
+
+  <div class="container">
+<div class="jumbotron" id="mapcontainer">
+  <div id="map-container" class="z-depth-1 wow fadeInUp" style="height: 600px"></div>
+</div> 
 </div>
+    <script>
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+
+      var map, heatmap;
+      var heattable = [];
+
+
+
+
+      function initialize6(){
+
+        initMap();
+        initAutoComplete();
+
+
+      }
+
+
+      function initAutoComplete() {
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete7'));
+    }
+
+      function initMap() {
+
+
+
+        map = new google.maps.Map(document.getElementById('map-container'), {
+          zoom: 13,
+          center: {lat: 37.775, lng: -122.434},
+          mapTypeId: 'satellite'
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map,
+          radius: 20
+        });
+      }
+
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+
+
+
+      // Heatmap data: 500 Points
+      function getPoints() {
+
+        var newarray = [
+          new google.maps.LatLng(37.757676, -122.405118),
+          new google.maps.LatLng(37.8266, -122.4229),
+          new google.maps.LatLng(37.773972, -122.476447),
+          new google.maps.LatLng(37.757676, -122.431297),
+          new google.maps.LatLng(37.784348, -122.505293),
+          new google.maps.LatLng(37.8246499, -122.417743),
+          new google.maps.LatLng( 37.808, -122.405118),
+          new google.maps.LatLng(37.76904, -122.483519),
+          new google.maps.LatLng(37.8246499, -122.417743),
+          new google.maps.LatLng(37.8266, -122.4229),
+          new google.maps.LatLng(37.733795, -122.446747),
+          new google.maps.LatLng(37.733795, -122.446747)
+
+          
+          ]
+        return newarray
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI19wnbHIh6JDz7IanAKOzySUQ_uqrNqo&libraries=visualization,places&callback=initialize6">
+    </script>

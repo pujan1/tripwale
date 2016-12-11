@@ -18,6 +18,17 @@
   <script type="text/javascript">
     var newnumber;
     var map; 
+    console.log = function (arg) {
+    var tempObj;
+
+    if (typeof arg === 'object' && !arg.length) {
+        tempObj = JSON.parse(JSON.stringify(arg));
+        tempObj.__proto__ = null;
+        return tempObj;
+    }
+
+    return arg;
+};
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
@@ -46,7 +57,13 @@
 </div>
  <div class="container footer navbar-static-bottom" id="footer" >
             <p class="muted credit">Tripewale @2016</p>
+            <div align="right" style="padding-bottom: 20px;"><div id="google_translate_element" style="padding-bottom: 20px;"></div></div>
     </div>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     	
 </body>
 </html>

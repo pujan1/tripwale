@@ -2,6 +2,8 @@ var typingTimer;
 var doneTypingInterval = 2000;
 var outputstr2;
 var marker = [];
+var infowindow = [];
+var InfoWindowforcurrent;
 var map;
 
 function initialize3() {
@@ -24,11 +26,9 @@ function initMap() {
                 zoom: 10,
                 center: myLatLng,
         });
-        var markers = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: 'Hello World!'
-        });
+         
+
+
 }
 
 
@@ -41,6 +41,17 @@ function addmarkers(lat, lng, i, name, phototemp) {
         marker[i] = new google.maps.Marker({
                 position: new google.maps.LatLng(lat, lng),
                 title: name
+        });
+
+
+        infowindow[i] = new google.maps.InfoWindow({
+        content: "<img src=" + phototemp +">" 
+        });
+
+
+
+        marker[i].addListener('click', function() {
+        infowindow[i].open(map, marker[i]);
         });
         
         marker[i].setMap(map);
@@ -69,5 +80,6 @@ function processplaces() {
                         }
                         
                 }
+
         }).error(function() { sweetAlert("Cannot find the place"); });
 }

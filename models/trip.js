@@ -64,31 +64,14 @@ module.exports.addTrip = function(trip, callback){
 }
 
 
+
 module.exports.getTripsbyUser = function(id, callback){
 	console.log("id - " +id);
 	Trip.find({ '_user': id}, callback);
 }
 
+module.exports.getHeatMap = function(city, callback){
+	Trip.find({'city' : city},callback).select('sightsdetails.lat sightsdetails.long');
 
-
-// Update Trip
-module.exports.updateTrip = function(id, trip, options, callback){
-	var query = {_id: id};
-	var update = {
-		title: trip.title,
-		genre: trip.genre,
-		description: trip.description,
-		author: trip.author,
-		publisher: trip.publisher,
-		pages: trip.pages,
-		image_url: trip.image_url,
-		buy_url: trip.buy_url
-	}
-	Trip.findOneAndUpdate(query, update, options, callback);
 }
 
-// Delete Trip
-module.exports.removeTrip = function(id, callback){
-	var query = {_id: id};
-	Trip.remove(query, callback);
-}

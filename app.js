@@ -144,7 +144,7 @@ app.get('/api/users/:_id', function(req, res){
 			if(err){
 				throw err;
 			}
-			console.log("trips = " +trips);
+			//console.log("trips = " +trips);
 			res.json({user: user, trips: trips});
 
 		})
@@ -190,8 +190,26 @@ app.get('/rest/loggedin', function(req, res){
 
 	res.send(req.isAuthenticated() ? req.user: "0");
 	console.log("req user in logged" + req);
+});
+
+
+app.get('/api/heatmap/:city', function(req, res){
+	var city = req.params.city;
+	city.replace("%20"," ");
+	console.log("city is = " +city);
+	Trip.getHeatMap(city, function(err, heattable){
+		if(err){
+			throw err;
+		}
+		console.log(heattable);
+		res.json(heattable);
+	});
+
+
 
 });
+
+
 
 
 

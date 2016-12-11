@@ -57,6 +57,14 @@ myApp.config(function($routeProvider){
 		controller:'UsersController',
 		templateUrl: 'views/login.html'
 	})
+
+	.when('/heatmap',{
+		controller:'TripsController',
+		templateUrl: 'views/analytics.html'
+	})
+
+
+
 	.otherwise({
 		redirectTo: '/'
 	});

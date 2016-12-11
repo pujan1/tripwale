@@ -8,6 +8,18 @@ myApp.controller('TripsController', ['$scope', '$http', '$location', '$routePara
 
 
 
+	$scope.addHeatmap = function(){
+			var city    = document.getElementById("autocomplete7").value;
+			
+		$http.get('/api/heatmap/'+city).success(function(response){
+			heattable = response;
+			console.log( "response = " + response );
+		})
+	}
+
+
+
+
 	$scope.getTrips = function(){
 		$http.get('/api/trips').success(function(response){
 			$scope.trips = response;
@@ -59,18 +71,7 @@ myApp.controller('TripsController', ['$scope', '$http', '$location', '$routePara
 		});
 	}
 
-	$scope.updateTrip = function(){
-		var id = $routeParams.id;
-		$http.put('/api/trips/'+id, $scope.trip).success(function(response){
-			window.location.href='#/trips';
-		});
-	}
 
-	$scope.removeTrip = function(id){
-		$http.delete('/api/trips/'+id).success(function(response){
-			window.location.href='#/trips';
-		});
-	}
 
 }]);
 

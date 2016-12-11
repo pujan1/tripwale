@@ -1,9 +1,4 @@
 
-
-
-
-
-
 body{
   background: url(https://i.imgur.com/i2xiBc7.jpg) no-repeat top right;
   background-attachment: fixed;
@@ -50,7 +45,28 @@ max-width: 400px;
   padding-bottom: 30px;
 }
 
-
+ #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
 
 .background_jumbo{
   
